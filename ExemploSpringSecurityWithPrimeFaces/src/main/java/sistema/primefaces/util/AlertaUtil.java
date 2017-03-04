@@ -1,4 +1,4 @@
-package util;
+package sistema.primefaces.util;
 
 
 import javax.faces.application.FacesMessage;

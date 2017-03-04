@@ -1,4 +1,4 @@
-package security;
+package sistema.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -6,15 +6,25 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	private static UserDetailsService usuarioService = new UsuarioSistemaService();
+	
+	public SecurityConfig() {
+		 
+	}
+	
    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("normal").password("123456").roles("COMUM");
-        auth.inMemoryAuthentication().withUser("adm").password("123456").roles("ADMIN");
+	   auth.userDetailsService(usuarioService);
+	   
+        
         
     }
 
@@ -29,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         
         //Libera todos os recursos do JSF
         http.authorizeRequests().antMatchers("/javax.faces.resource/**").permitAll();
+        
         
         //Controla o acesso a página protegida  do adm        
         http.authorizeRequests().antMatchers("/pages/adm/**").hasRole("ADMIN");

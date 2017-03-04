@@ -1,4 +1,4 @@
-package bean;
+package sistema.bean;
 
 
 import javax.faces.bean.ManagedBean;
@@ -6,7 +6,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
-import util.AlertaUtil;
+import sistema.primefaces.util.AlertaUtil;
 
 @ManagedBean
 @ViewScoped
@@ -24,5 +24,6 @@ public class LoginBean{
 		}
 		
 	}
-
+	
+	
 }
