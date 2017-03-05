@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import sistema.cdi.util.CDIServiceLocator;
 import sistema.dao.UsuarioDAO;
 import sistema.entidade.Usuario;
 
@@ -27,8 +30,10 @@ public class UsuarioSistemaService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
 		
-		UsuarioDAO usuarioService = new UsuarioDAO();
-				
+		
+		UsuarioDAO usuarioService = CDIServiceLocator.getBean(UsuarioDAO.class);
+		
+						
 		//Pesquisar o usuário no banco
 		Usuario usuario = usuarioService.pesquisarPorUserName(login);
 		

@@ -7,10 +7,12 @@ import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.apache.commons.logging.Log;
+
+import javax.inject.Inject;
 
 /**
  * Classe que contem a implementacao pradrao em JPA 
@@ -20,21 +22,13 @@ import javax.persistence.criteria.CriteriaQuery;
 
 public abstract class GenericoDAO<T>  {
 
-	private static EntityManagerFactory emf;
-	private EntityManager em;
+
+	private static final long serialVersionUID = -2460350236904201128L;
+
+	@Inject
+	private transient EntityManager em;
+
 	private Class<T> classeEntidade;
-	
-	
-	public GenericoDAO(){
-		if(emf == null)
-		    emf = Persistence.createEntityManagerFactory("ExemploSS");
-		
-		
-		//Usar CDI!!!!
-		em = emf.createEntityManager();
-	}
-	
-	
 
 	protected abstract Class<T> getClasseEntidade();
 	
@@ -44,7 +38,7 @@ public abstract class GenericoDAO<T>  {
 	}
 
 	protected EntityManager getEntityManager() {
-		return emf.createEntityManager();
+		return em;
 	}
 
 	public Query criarNativeQuery(String sql) {
