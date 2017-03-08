@@ -9,7 +9,19 @@
 <h:body>
 
   <h1>Sistema</h1>	
-  <p:link href="/logout">Sair</p:link> <br/>
   <p:link href="/pages/adm/adm.xhtml" rendered="#{request.isUserInRole('ADMIN')}">Admin</p:link>
+  <p:link href="/logout">Sair</p:link> <br/>
+
+  <p:panelGrid columns="2">
+  <h:form>
+       <p:outputLabel for="nome">Nome</p:outputLabel>
+       <p:inputText value="#{clienteBean.cliente.nome}" id="nome"></p:inputText>
+       <p:outputLabel for="saldo">Saldo</p:outputLabel>
+       <p:inputText value="#{clienteBean.cliente.saldo}" id="saldo"></p:inputText>
+       <p:commandButton value="Salva" action="#{clienteBean.salvar()}"/>
+  </h:form>
+</p:panelGrid>
+
+
 </h:body>
 </html>
