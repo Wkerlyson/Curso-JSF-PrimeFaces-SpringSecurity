@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("normal").password("123456").roles("COMUM");
         auth.inMemoryAuthentication().withUser("adm").password("123456").roles("ADMIN");
-        
+        auth.inMemoryAuthentication().withUser("superadm").password("123456").roles("SUPERADMIN");
     }
 
     //@Override
@@ -30,9 +30,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //Libera todos os recursos do JSF
         http.authorizeRequests().antMatchers("/javax.faces.resource/**").permitAll();
         
-        //Controla o acesso a página protegida  do adm        
-        http.authorizeRequests().antMatchers("/pages/adm/**").hasRole("ADMIN");
-                
+        //Controla o acesso a página protegida  do adm e superadmin        
+       	http.authorizeRequests().antMatchers("/pages/adm/**")
+     	          .access("hasRole('ADMIN') or hasRole('SUPERADMIN')");
+             
+        
+        http.authorizeRequests().antMatchers("/pages/superadm/**" ).hasRole("SUPERADMIN");        
+        
+		
     	
     	//Login
     	http.formLogin().loginPage("/login.xhtml").permitAll()

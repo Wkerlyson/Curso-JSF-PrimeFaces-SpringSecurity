@@ -10,6 +10,15 @@
 
   <h1>Sistema</h1>	
   <p:link href="/logout">Sair</p:link> <br/>
-  <p:link href="/pages/adm/adm.xhtml" rendered="#{request.isUserInRole('ADMIN')}">Admin</p:link>
+  <p:link href="/pages/adm/adm.xhtml" 
+  rendered="#{request.isUserInRole('ADMIN')}">Admin</p:link>
+  
+  
+   <p:link href="/pages/adm/adm.xhtml" 
+  rendered="#{request.isUserInRole('SUPERADMIN')}">Admin</p:link>
+  <br/>
+  <p:link href="/pages/superadm/superadm.xhtml" 
+  rendered="#{request.isUserInRole('SUPERADMIN')}">Super Admin</p:link>
+  
 </h:body>
 </html>

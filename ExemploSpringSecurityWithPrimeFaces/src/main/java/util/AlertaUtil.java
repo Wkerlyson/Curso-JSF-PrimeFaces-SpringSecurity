@@ -190,3 +190,11 @@ public class AlertaUtil{
         FacesContext.getCurrentInstance().addMessage(clientId, message);
 	}
 }
+
+
+
+
+
+
+
+
