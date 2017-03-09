@@ -8,12 +8,9 @@
   	<properties>
 		<eclipselink.version>2.6.2</eclipselink.version>
 		<spring-security.version>4.2.1.RELEASE</spring-security.version>
-		
 		<jstlel.version>1.2.1</jstlel.version>
-		
 		<commons-logging.version>1.2</commons-logging.version>
-	    
-	    <cdi-api.version>1.2</cdi-api.version>
+	   <cdi-api.version>1.2</cdi-api.version>
 	    <weld.version>2.2.15.Final</weld.version>
 	</properties>
 	
