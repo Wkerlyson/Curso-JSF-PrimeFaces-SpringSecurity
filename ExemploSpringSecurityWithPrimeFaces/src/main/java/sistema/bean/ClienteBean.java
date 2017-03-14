@@ -1,35 +1,39 @@
 package sistema.bean;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
 
+
+import sistema.cdi.util.CDIServiceLocator;
 import sistema.entidade.Cliente;
 import sistema.service.ClienteService;
 
+
+@ManagedBean
 @ViewScoped
-@Named
 public class ClienteBean {
 
-	private Cliente cliente;
+	private Cliente cliente = new Cliente();
 	
-	@Inject
 	private ClienteService service;
+	
+	@PostConstruct
+	public void initService(){
+		service = CDIServiceLocator.getBean(ClienteService.class);
+	}
 	
 	public String salvar() {
 		if (!cliente.isPersisted()) {
 			service.salvar(cliente);
 		}
-		resetCliente();
+		
+		cliente = new Cliente();
 
-		return "";
+		return "sistema.xhtml";
 	}
 	
 	public Cliente getCliente() {
-		if(cliente == null)
-			resetCliente();
-		
 		return cliente;
 	}
 
@@ -38,9 +42,8 @@ public class ClienteBean {
 	}
 
 
-	private void resetCliente(){
-		cliente = new Cliente();
-	}
+	
+	
 	
 	
 	

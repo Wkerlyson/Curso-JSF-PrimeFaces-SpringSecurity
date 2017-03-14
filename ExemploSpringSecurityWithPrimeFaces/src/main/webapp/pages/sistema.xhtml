@@ -13,12 +13,12 @@
   <p:link href="/logout">Sair</p:link> <br/>
 
   <p:panelGrid columns="2">
-  <h:form>
+  <h:form id="formCliente">
        <p:outputLabel for="nome">Nome</p:outputLabel>
        <p:inputText value="#{clienteBean.cliente.nome}" id="nome"></p:inputText>
        <p:outputLabel for="saldo">Saldo</p:outputLabel>
        <p:inputText value="#{clienteBean.cliente.saldo}" id="saldo"></p:inputText>
-       <p:commandButton value="Salva" action="#{clienteBean.salvar()}"/>
+       <p:commandButton value="Salva" action="#{clienteBean.salvar()}" update=":formCliente"/>
   </h:form>
 </p:panelGrid>
 
