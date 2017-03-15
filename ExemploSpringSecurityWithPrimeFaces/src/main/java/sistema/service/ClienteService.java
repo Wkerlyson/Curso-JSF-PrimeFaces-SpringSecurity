@@ -2,8 +2,7 @@ package sistema.service;
 
 import javax.inject.Inject;
 
-
-
+import sistema.cdi.Transactional;
 import sistema.dao.ClienteDAO;
 import sistema.entidade.Cliente;
 
@@ -13,6 +12,8 @@ public class ClienteService {
 	@Inject
 	private ClienteDAO clienteDAO;
 
+	
+	@Transactional
 	public void salvar(Cliente cliente) {
 		validarCliente(cliente);
 		clienteDAO.salvar(cliente);

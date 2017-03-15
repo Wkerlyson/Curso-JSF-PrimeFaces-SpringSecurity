@@ -12,6 +12,8 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import org.apache.commons.logging.Log;
 
+import sistema.cdi.Transactional;
+
 import javax.inject.Inject;
 
 /**
@@ -44,7 +46,7 @@ public abstract class GenericoDAO<T>  {
 	public Query criarNativeQuery(String sql) {
 		return em.createNativeQuery(sql);
 	}
-
+	
 	
 	public void salvar(T entidade) {
 		em.persist(entidade);

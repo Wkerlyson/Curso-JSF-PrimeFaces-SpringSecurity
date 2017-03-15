@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -17,6 +18,8 @@ import org.apache.commons.logging.Log;
  *
  *
  */
+@ApplicationScoped
+@Named
 public class EntityManagerFactoryProducer implements Serializable {
 
 	private static final long serialVersionUID = 3811879914474709959L;

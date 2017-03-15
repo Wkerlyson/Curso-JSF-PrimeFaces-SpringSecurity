@@ -1,5 +1,5 @@
 package sistema.cdi;
-
+//https://www.laliluna.de/articles/2011/01/12/jboss-weld-jpa-hibernate.html
 import java.io.Serializable;
 
 import javax.inject.Inject;
