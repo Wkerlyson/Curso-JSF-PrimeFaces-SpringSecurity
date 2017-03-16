@@ -2,8 +2,8 @@ package sistema.service;
 
 import javax.inject.Inject;
 
-import sistema.cdi.Transactional;
 import sistema.dao.ClienteDAO;
+import sistema.dao.transactional.Transactional;
 import sistema.entidade.Cliente;
 
 public class ClienteService {

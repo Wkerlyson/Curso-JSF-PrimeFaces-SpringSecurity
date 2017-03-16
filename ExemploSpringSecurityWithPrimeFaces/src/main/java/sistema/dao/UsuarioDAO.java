@@ -8,6 +8,11 @@ import sistema.entidade.Usuario;
 public class UsuarioDAO extends GenericoDAO<Usuario>  {
 
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 153543211914712754L;
+
 	protected Class<Usuario> getClasseEntidade() {
 		return Usuario.class;
 	}

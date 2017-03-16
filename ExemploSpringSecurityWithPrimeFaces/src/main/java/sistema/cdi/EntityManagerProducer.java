@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import org.apache.commons.logging.Log;
 
 /**
  * Classe produtora de EntityManagers para CDI

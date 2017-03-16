@@ -1,18 +1,15 @@
 package sistema.dao;
 
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
-import org.apache.commons.logging.Log;
-
-import sistema.cdi.Transactional;
 
 import javax.inject.Inject;
 
@@ -22,10 +19,13 @@ import javax.inject.Inject;
  * 
  */
 
-public abstract class GenericoDAO<T>  {
+public abstract class GenericoDAO<T>  implements Serializable {
 
 
-	private static final long serialVersionUID = -2460350236904201128L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private transient EntityManager em;

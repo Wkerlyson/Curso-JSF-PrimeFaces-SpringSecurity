@@ -1,4 +1,4 @@
-package sistema.cdi;
+package sistema.dao.transactional;
 //https://www.laliluna.de/articles/2011/01/12/jboss-weld-jpa-hibernate.html
 import java.io.Serializable;
 

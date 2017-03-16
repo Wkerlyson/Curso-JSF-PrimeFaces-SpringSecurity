@@ -1,4 +1,4 @@
-package sistema.cdi;
+package sistema.dao.transactional;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
